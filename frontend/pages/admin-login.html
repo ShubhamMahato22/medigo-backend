@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login | MediStore</title>
+    <meta name="description" content="Admin portal login for MediStore management." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/admin-login.css">
+  </head>
+
+  <body>
+    <div class="admin-login-wrap">
+
+      <!-- Badge -->
+        <!--<div class="admin-badge">
+       <div class="badge-icon"></div>
+         <div>
+          <div class="badge-text">MediStore Admin</div>
+          <div class="badge-sub">Restricted Access</div>
+        </div>
+      </div>-->
+
+      <!-- Card -->
+      <div class="admin-card">
+        <h2>Admin Login</h2>
+        <p class="subtitle">Enter your admin credentials to continue</p>
+
+        <!-- Message -->
+        <div class="message" id="admin-msg"></div>
+
+        <!-- Form -->
+        <form id="admin-login-form">
+          <div class="form-group">
+            <label for="admin-email">Email Address</label>
+            <div class="input-icon-wrap">
+              <span class="input-icon"></span>
+              <input
+                type="email"
+                id="admin-email"
+                placeholder="Enter admin E-mail"
+                required
+                autocomplete="username"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="admin-password">Password</label>
+            <div class="input-icon-wrap">
+              <!--<span class="input-icon"></span> -->
+              <input
+                type="password"
+                id="admin-password"
+                placeholder="Enter admin password"
+                required
+                autocomplete="current-password"
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-admin-submit">
+            Login to Dashboard →
+          </button>
+        </form>
+      </div>
+
+      <a href="index.html" class="back-link">← Back to Store</a>
+    </div>
+
+   <script src="../js/admin-login.js"></script>
+  </body>
+</html>

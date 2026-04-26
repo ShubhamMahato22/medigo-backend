@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Dashboard | MediGo</title>
+    <meta
+      name="description"
+      content="View your profile and order history on MediStore."
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/dashboard.css">
+  </head>
+
+  <body>
+    <!-- ===================== NAVBAR ===================== -->
+    <nav class="navbar">
+      <div class="logo">Medi<span>Go</span></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="medicines.html">Medicines</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li id="auth-section"></li>
+      </ul>
+    </nav>
+
+    <!-- ===================== DASHBOARD SHELL ===================== -->
+    <div class="dashboard-shell">
+      <!-- ---- SIDEBAR ---- -->
+      <aside class="sidebar">
+        <!-- Avatar -->
+        <div class="sidebar-avatar">
+          <div class="avatar-circle" id="avatar-initials">?</div>
+          <span class="sidebar-avatar-name" id="sidebar-name">Loading...</span>
+          <span class="sidebar-avatar-email" id="sidebar-email"></span>
+        </div>
+
+        <!-- Nav items -->
+        <nav class="sidebar-nav">
+          <button
+            class="sidebar-nav-item active"
+            id="nav-profile"
+            onclick="showPanel('profile')"
+          >
+            <span class="nav-icon"></span>
+            Profile
+          </button>
+          <button
+            class="sidebar-nav-item"
+            id="nav-orders"
+            onclick="showPanel('orders')"
+          >
+            <span class="nav-icon"></span>
+            My Orders
+          </button>
+        </nav>
+
+        <!-- Logout -->
+        <div class="sidebar-logout">
+          <button class="btn-logout" id="logout-btn" onclick="logout()">
+            Logout
+          </button>
+        </div>
+      </aside>
+
+      <!-- ---- MAIN CONTENT ---- -->
+      <main class="dashboard-content">
+        <!-- ======= PROFILE PANEL ======= -->
+        <div class="dash-panel active" id="panel-profile">
+          <div class="section-header">
+            <span class="header-icon"></span>
+            <h2>My Profile</h2>
+          </div>
+
+          <div class="profile-card">
+            <div class="profile-row">
+              <span class="profile-label">Full Name</span>
+              <span class="profile-value" id="profile-name">—</span>
+            </div>
+            <div class="profile-row">
+              <span class="profile-label">Email</span>
+              <span class="profile-value" id="profile-email">—</span>
+            </div>
+            <div class="profile-row">
+              <span class="profile-label">Phone</span>
+              <span class="profile-value" id="profile-phone">—</span>
+            </div>
+            <div class="profile-row">
+              <span class="profile-label">Address</span>
+              <span class="profile-value" id="profile-address">—</span>
+            </div>
+            <div class="profile-row">
+              <span class="profile-label">Role</span>
+              <span class="profile-value" id="profile-role">—</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======= MY ORDERS PANEL ======= -->
+        <div class="dash-panel" id="panel-orders">
+          <div class="section-header">
+            <span class="header-icon"></span>
+            <h2>My Orders</h2>
+          </div>
+
+          <!-- States -->
+          <p id="orders-loading">⏳ Loading your orders...</p>
+          <p id="orders-empty" style="display: none">
+            You haven't placed any orders yet.
+            <a
+              href="medicines.html"
+              style="color: var(--primary); font-weight: 600"
+              >Browse Medicines</a
+            >
+          </p>
+          <p id="orders-error" style="display: none">
+            Failed to load orders. Make sure the server is running.
+          </p>
+
+          <!-- Orders list injected here -->
+          <div class="orders-list" id="orders-list"></div>
+        </div>
+      </main>
+    </div>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+      <p>&copy; 2024 <span>MediGo</span>. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/dashboard.js"></script>
+  </body>
+</html>

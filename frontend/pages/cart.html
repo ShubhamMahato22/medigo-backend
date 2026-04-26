@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart | MediStore</title>
+  <meta name="description" content="Review your cart and place your order on MediStore." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar">
+    <div class="logo">Medi<span>Store</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="medicines.html">Medicines</a></li>
+      <li><a href="cart.html" class="active">Cart</a></li>
+      <li id="auth-section"></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== CART SECTION ===================== -->
+  <div class="cart-container">
+    <h2>Your Cart</h2>
+
+    <!-- Message box for success/error feedback -->
+    <div class="message" id="cart-message"></div>
+
+    <!-- Empty cart message (shown if cart is empty) -->
+    <div id="empty-cart" style="text-align:center; padding:40px; display:none;">
+      <p style="font-size:1.1rem; color:#64748b;">Your cart is empty.</p>
+      <a href="medicines.html" class="btn btn-primary" style="margin-top:16px;">
+        Browse Medicines
+      </a>
+    </div>
+
+    <!-- Cart table (shown when cart has items) -->
+    <div id="cart-content">
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Medicine</th>
+            <th>Price (₹)</th>
+            <th>Quantity</th>
+            <th>Subtotal (₹)</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <!-- Table rows are added here by JavaScript -->
+        <tbody id="cart-tbody"></tbody>
+      </table>
+
+      <!-- Cart Summary -->
+      <div class="cart-summary">
+        <p>Total Amount: <strong id="total-amount">₹0</strong></p>
+        <button class="btn btn-primary" onclick="goToCheckout()">
+          proceed to Checkout
+        </button>
+        <button class="btn btn-outline" onclick="clearCart()" style="margin-left:12px;">
+          Clear Cart 
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2024 <span>MediGo</span>. All rights reserved.</p>
+  </footer>
+
+  <script src="../js/cart.js"></script>
+
+</body>
+</html>

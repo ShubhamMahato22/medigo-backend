@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | MediGo</title>
+    <meta name="description" content="Complete your order on MediStore — enter your delivery address and confirm." />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/checkout.css">
+  </head>
+
+  <body>
+    <!-- ===================== NAVBAR ===================== -->
+    <nav class="navbar">
+      <div class="logo">Medi<span>Go</span></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="medicines.html">Medicines</a></li>
+        <li><a href="cart.html">← Cart</a></li>
+        <li id="auth-section"></li>
+      </ul>
+    </nav>
+
+    <!-- ===================== PROGRESS BAR ===================== -->
+    <div class="checkout-progress">
+      <div class="progress-step done">
+        <div class="step-circle">✓</div>
+        Cart
+      </div>
+      <div class="progress-line done"></div>
+      <div class="progress-step active">
+        <div class="step-circle">2</div>
+        Address & Review
+      </div>
+      <div class="progress-line"></div>
+      <div class="progress-step">
+        <div class="step-circle">3</div>
+        Confirmed
+      </div>
+    </div>
+
+    <!-- ===================== CHECKOUT SHELL ===================== -->
+    <div class="checkout-shell">
+
+      <!-- ========================= LEFT ========================= -->
+      <div class="checkout-left">
+
+        <!-- ---- 1. Delivery Address ---- -->
+        <div class="co-card">
+          <div class="co-card-title">
+            <span class="title-icon"></span> Deliver To
+          </div>
+
+          <div class="co-message error" id="addr-error"></div>
+
+          <form id="address-form">
+            <div class="address-grid">
+              <div class="form-group full-width">
+                <label for="addr-name">Full Name *</label>
+                <input type="text" id="addr-name" placeholder="John Doe" required />
+              </div>
+              <div class="form-group full-width">
+                <label for="addr-street">Street / Flat / Locality *</label>
+                <input type="text" id="addr-street" placeholder="123 Main Street, Apartment 4B" required />
+              </div>
+              <div class="form-group">
+                <label for="addr-city">City *</label>
+                <input type="text" id="addr-city" placeholder="Mumbai" required />
+              </div>
+              <div class="form-group">
+                <label for="addr-state">State</label>
+                <input type="text" id="addr-state" placeholder="Maharashtra" />
+              </div>
+              <div class="form-group">
+                <label for="addr-pincode">Pincode *</label>
+                <input type="text" id="addr-pincode" placeholder="400001" maxlength="6" required />
+              </div>
+              <div class="form-group">
+                <label for="addr-phone">Phone</label>
+                <input type="tel" id="addr-phone" placeholder="9876543210" maxlength="10" />
+              </div>
+            </div>
+          </form>
+
+          <!-- Delivery date badge -->
+          <div class="delivery-badge" id="delivery-badge" style="margin-top:18px;">
+            Delivery by <span id="delivery-date">calculating...</span>
+          </div>
+        </div>
+
+        <!-- ---- 2. Order Items ---- -->
+        <div class="co-card">
+          <div class="co-card-title">
+            <span class="title-icon"></span>
+            Your Medicines
+            <span style="margin-left:auto; font-size:0.8rem; color:var(--gray); font-weight:500;" id="item-count"></span>
+          </div>
+          <div id="order-items-list"></div>
+        </div>
+
+        <!-- ---- 3. Payment Method ---- -->
+        <div class="co-card">
+          <div class="co-card-title">
+            <span class="title-icon"></span> Payment Method
+          </div>
+          <div class="payment-row">
+            <div class="payment-radio"></div>
+            <div>
+              <div class="payment-label">Cash on Delivery</div>
+              <div class="payment-sub">Pay when your order arrives at your door</div>
+            </div>
+            <span style="margin-left:auto; font-size:1.2rem;"></span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ========================= RIGHT ========================= -->
+      <div class="checkout-right">
+
+        <!-- ---- Price Summary ---- -->
+        <div class="co-card">
+          <div class="co-card-title">
+            <span class="title-icon"></span> Price Summary
+          </div>
+
+          <div id="price-summary">
+            <!-- injected by JS -->
+          </div>
+
+          <button
+            class="btn btn-primary btn-confirm"
+            id="confirm-btn"
+            onclick="confirmOrder()"
+            style="margin-top: 20px;"
+          >
+             Confirm Order
+          </button>
+
+          <p style="text-align:center; font-size:0.75rem; color:var(--gray); margin-top:12px;">
+             Safe & secure · No payment online needed
+          </p>
+        </div>
+
+        <!-- ---- Help card ---- -->
+        <div class="co-card" style="padding: 18px 20px;">
+          <p style="font-size:0.82rem; color:var(--gray); line-height:1.7;">
+             Need help? Call us at <strong style="color:var(--dark);">1800-000-0000</strong><br/>
+             Mon–Sat · 9am–6pm
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===================== SUCCESS OVERLAY ===================== -->
+    <div class="success-overlay" id="success-overlay">
+      <div class="success-box">
+        <div class="success-icon">🎉</div>
+        <div class="success-title">Order Placed Successfully!</div>
+        <p class="success-sub">
+          Your medicines are being packed.<br/>
+          You will receive them by
+        </p>
+        <div class="success-delivery" id="success-delivery-date">
+           Delivery by ...
+        </div>
+        <a href="medicines.html" class="btn btn-primary" style="width:100%; text-align:center; padding:13px;">
+          Continue Shopping →
+        </a>
+        <a href="dashboard.html" style="display:block; margin-top:12px; font-size:0.85rem; color:var(--primary); text-align:center; font-weight:600;">
+          View My Orders →
+        </a>
+      </div>
+    </div>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+      <p>&copy; 2024 <span>MediGo</span>. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/checkout.js"></script>
+  </body>
+</html>

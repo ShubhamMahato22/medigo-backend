@@ -1,0 +1,491 @@
+/* =====================================================
+         ADMIN DASHBOARD — SCOPED STYLES
+         ===================================================== */
+      .admin-shell {
+        display: flex;
+        min-height: calc(100vh - 65px - 58px);
+        background: var(--bg);
+      }
+
+      /* ---- SIDEBAR ---- */
+      .admin-sidebar {
+        width: 240px;
+        flex-shrink: 0;
+        background: #0f172a;
+        display: flex;
+        flex-direction: column;
+        padding: 28px 0;
+        position: sticky;
+        top: 65px;
+        height: fit-content;
+        min-height: calc(100vh - 65px);
+      }
+
+      .admin-brand {
+        padding: 0 24px 24px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        margin-bottom: 16px;
+      }
+
+      .admin-brand .brand-icon { font-size: 1.6rem; }
+
+      .admin-brand .brand-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+        margin-top: 6px;
+      }
+
+      .admin-brand .brand-sub {
+        font-size: 0.72rem;
+        color: rgba(255,255,255,0.45);
+        margin-top: 2px;
+      }
+
+      .admin-nav { padding: 0 12px; display: flex; flex-direction: column; gap: 4px; }
+
+      .admin-nav-item {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        padding: 11px 14px;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: rgba(255,255,255,0.65);
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        width: 100%;
+        text-align: left;
+        font-family: var(--font);
+        transition: background 0.15s, color 0.15s;
+      }
+
+      .admin-nav-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
+
+      .admin-nav-item.active {
+        background: var(--primary);
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .admin-nav-item .nav-icon { font-size: 1.05rem; width: 20px; text-align: center; }
+
+      .admin-sidebar-footer {
+        margin-top: auto;
+        padding: 20px 12px 0;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .btn-admin-logout {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 10px 14px;
+        border-radius: 10px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: #f87171;
+        cursor: pointer;
+        border: 1px solid rgba(248,113,113,0.3);
+        background: rgba(248,113,113,0.08);
+        font-family: var(--font);
+        transition: background 0.15s;
+      }
+
+      .btn-admin-logout:hover { background: rgba(248,113,113,0.18); }
+
+      /* ---- MAIN CONTENT ---- */
+      .admin-content { flex: 1; padding: 36px 40px; min-width: 0; }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+
+      .section-header h2 { font-size: 1.5rem; font-weight: 700; color: var(--dark); }
+      .section-header .header-icon { font-size: 1.6rem; }
+
+      .dash-panel { display: none; }
+      .dash-panel.active { display: block; }
+
+      /* ---- ADD MEDICINE FORM ---- */
+      .add-med-card {
+        background: var(--white);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        padding: 36px;
+        max-width: 580px;
+      }
+
+      .form-row { display: flex; gap: 16px; }
+      .form-row .form-group { flex: 1; }
+
+      /* ---- ORDERS TABLE ---- */
+      .orders-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 18px;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .orders-count {
+        font-size: 0.85rem;
+        color: var(--gray);
+        font-weight: 500;
+      }
+
+      .btn-refresh {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        background: var(--bg);
+        border: 1.5px solid var(--border);
+        color: var(--dark);
+        cursor: pointer;
+        font-family: var(--font);
+        transition: background 0.15s;
+      }
+
+      .btn-refresh:hover { background: var(--border); }
+
+      .admin-orders-list { display: flex; flex-direction: column; gap: 14px; }
+
+      .admin-order-card {
+        background: var(--white);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        padding: 20px 24px;
+        border-left: 4px solid var(--primary);
+        transition: transform 0.15s, box-shadow 0.15s;
+      }
+
+      .admin-order-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(22,163,74,0.14);
+      }
+
+      .order-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .order-id-block { display: flex; flex-direction: column; gap: 4px; }
+
+      .order-id {
+        font-size: 0.73rem;
+        color: var(--gray);
+        font-family: monospace;
+        background: var(--bg);
+        padding: 3px 10px;
+        border-radius: 6px;
+        border: 1px solid var(--border);
+        word-break: break-all;
+      }
+
+      .order-user-info {
+        font-size: 0.8rem;
+        color: var(--gray);
+        font-weight: 500;
+      }
+
+      .order-meta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+      .order-amount {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+      }
+
+      .order-status {
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 3px 10px;
+        border-radius: 20px;
+      }
+
+      .status-pending   { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+      .status-confirmed { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+      .status-shipped   { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+      .status-delivered { background: #dbeafe; color: #1d4ed8; border: 1px solid #93c5fd; }
+      .status-cancelled { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+
+      .order-items-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--gray);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin: 10px 0 6px;
+      }
+
+      .order-items-list { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+
+      .order-item-pill {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 3px 12px;
+        font-size: 0.8rem;
+        color: var(--dark);
+        font-weight: 500;
+      }
+
+      .order-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+      .btn-accept {
+        padding: 7px 18px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        border-radius: 8px;
+        border: none;
+        background: var(--primary);
+        color: white;
+        cursor: pointer;
+        font-family: var(--font);
+        transition: background 0.15s, transform 0.1s;
+      }
+
+      .btn-accept:hover { background: var(--primary-dark); transform: translateY(-1px); }
+      .btn-accept:disabled { background: #d1d5db; color: #9ca3af; cursor: not-allowed; transform: none; }
+
+      .btn-cancel-order {
+        padding: 7px 18px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        border-radius: 8px;
+        border: 1.5px solid #fca5a5;
+        background: #fff5f5;
+        color: #b91c1c;
+        cursor: pointer;
+        font-family: var(--font);
+        transition: background 0.15s;
+      }
+
+      .btn-cancel-order:hover { background: #fee2e2; }
+      .btn-cancel-order:disabled { opacity: 0.5; cursor: not-allowed; }
+
+      /* State messages */
+      .state-msg {
+        text-align: center;
+        padding: 48px 20px;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--gray);
+        display: none;
+      }
+
+      .state-msg.visible { display: block; }
+
+      /* Toast */
+      .toast {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        background: #0f172a;
+        color: #fff;
+        padding: 13px 20px;
+        border-radius: 10px;
+        font-size: 0.88rem;
+        font-weight: 500;
+        box-shadow: 0 6px 24px rgba(0,0,0,0.22);
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.28s, transform 0.28s;
+        z-index: 9999;
+        pointer-events: none;
+      }
+
+      .toast.show { opacity: 1; transform: translateY(0); }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .admin-shell { flex-direction: column; }
+        .admin-sidebar { width: 100%; position: static; min-height: unset; }
+        .admin-nav { flex-direction: row; flex-wrap: wrap; }
+        .admin-nav-item { flex: 1; justify-content: center; min-width: 120px; }
+        .admin-content { padding: 24px 16px; }
+        .add-med-card { padding: 22px 16px; }
+        .form-row { flex-direction: column; }
+      }
+      /* ---- MANAGE MEDICINES ---- */
+      .med-table-wrap { overflow-x: auto; }
+
+      .med-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.88rem;
+      }
+
+      .med-table th, .med-table td {
+        padding: 11px 14px;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .med-table th {
+        background: var(--bg);
+        font-weight: 700;
+        color: var(--gray);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+      }
+
+      .med-table td { color: var(--dark); }
+
+      .med-table tr:last-child td { border-bottom: none; }
+
+      .med-table tr:hover td { background: #f8fafc; }
+
+      .btn-edit {
+        padding: 5px 14px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        border-radius: 6px;
+        border: 1.5px solid #93c5fd;
+        background: #eff6ff;
+        color: #1d4ed8;
+        cursor: pointer;
+        font-family: var(--font);
+        transition: background 0.15s;
+      }
+
+      .btn-edit:hover { background: #dbeafe; }
+
+      .btn-del {
+        padding: 5px 14px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        border-radius: 6px;
+        border: 1.5px solid #fca5a5;
+        background: #fff5f5;
+        color: #b91c1c;
+        cursor: pointer;
+        font-family: var(--font);
+        transition: background 0.15s;
+        margin-left: 6px;
+      }
+
+      .btn-del:hover { background: #fee2e2; }
+      .btn-del:disabled, .btn-edit:disabled { opacity: 0.45; cursor: not-allowed; }
+
+      .med-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .med-count { font-size: 0.85rem; color: var(--gray); font-weight: 500; }
+
+      /* ---- EDIT MODAL ---- */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(15,23,42,0.55);
+        z-index: 8000;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-overlay.open { display: flex; }
+
+      .modal-box {
+        background: white;
+        border-radius: 16px;
+        padding: 32px 28px;
+        width: 100%;
+        max-width: 520px;
+        box-shadow: 0 24px 64px rgba(0,0,0,0.22);
+        animation: modal-pop 0.25s cubic-bezier(0.34,1.56,0.64,1);
+      }
+
+      @keyframes modal-pop {
+        from { opacity:0; transform:scale(0.85); }
+        to   { opacity:1; transform:scale(1); }
+      }
+
+      .modal-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .modal-close {
+        background: none;
+        border: none;
+        font-size: 1.3rem;
+        cursor: pointer;
+        color: var(--gray);
+        line-height: 1;
+        padding: 2px 6px;
+        border-radius: 6px;
+        transition: background 0.15s;
+      }
+
+      .modal-close:hover { background: var(--bg); }
+
+      .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      .modal-grid .full { grid-column: 1 / -1; }
+
+      .modal-grid label {
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--gray);
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .modal-grid input {
+        width: 100%;
+        padding: 9px 12px;
+        border: 1.5px solid var(--border);
+        border-radius: 8px;
+        font-size: 0.88rem;
+        font-family: var(--font);
+        color: var(--dark);
+        background: var(--bg);
+        outline: none;
+        transition: border-color 0.2s;
+      }
+
+      .modal-grid input:focus { border-color: var(--primary); background: white; }
+
+      .modal-actions { display: flex; gap: 10px; margin-top: 20px; justify-content: flex-end; }
+
+      @media (max-width: 768px) {
+        .modal-grid { grid-template-columns: 1fr; }
+        .modal-grid .full { grid-column: 1; }
+        .modal-box { padding: 22px 16px; margin: 0 12px; }
+      }
+      .order-actions button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medicine Details | MediGo</title>
+    <meta
+      name="description"
+      content="View complete details, price, and description of this medicine on MediStore."
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <!-- ===================== NAVBAR ===================== -->
+    <nav class="navbar">
+      <div class="logo">Medi<span>Go</span></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="medicines.html" class="active">Medicines</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li id="auth-section"></li>
+      </ul>
+    </nav>
+
+    <!-- ===================== BREADCRUMB ===================== -->
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep">›</span>
+      <a href="medicines.html">Medicines</a>
+      <span class="sep">›</span>
+      <span id="breadcrumb-name">Loading...</span>
+    </div>
+
+    <!-- ===================== DETAIL SECTION ===================== -->
+    <div class="detail-wrapper">
+      <!-- Loading state (shown by default) -->
+      <div class="detail-state" id="loading-state">
+        <span class="state-icon"></span>
+        <p>Fetching medicine details...</p>
+      </div>
+
+      <!-- Error state (hidden by default) -->
+      <div class="detail-state error-state" id="error-state" style="display: none;">
+        <span class="state-icon" style="font-size: 3rem; animation: none;"></span>
+        <p id="error-msg">Something went wrong. Please try again.</p>
+        <a href="medicines.html" class="btn btn-outline" style="margin-top: 8px;">← Back to Medicines</a>
+      </div>
+
+      <!-- Main detail card (injected by JS) -->
+      <div id="medicine-detail" style="display: none;"></div>
+    </div>
+
+    <!-- ===================== TOAST ===================== -->
+    <div class="toast" id="toast">
+      <span class="toast-icon" id="toast-icon"></span>
+      <span id="toast-msg">Added to cart!</span>
+    </div>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+      <p>&copy; 2024 <span>MediGo</span>. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/medicine.js"></script>
+  </body>
+</html>

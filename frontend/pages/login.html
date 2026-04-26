@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | MediStore</title>
+  <meta name="description" content="Login to your MediStore account." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar">
+    <div class="logo">Medi<span>Go</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="medicines.html">Medicines</a></li>
+      <li><a href="cart.html">Cart</a></li>
+      <li id="auth-section"></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== LOGIN FORM ===================== -->
+  <div class="form-container">
+    <h2>Login</h2>
+
+    <!-- Success/Error Message Box (hidden by default) -->
+    <div class="message" id="login-message"></div>
+
+    <!-- Login Form -->
+    <form id="login-form">
+
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="login-email">Email Address</label>
+        <input
+          type="email"
+          id="login-email"
+          name="email"
+          placeholder="you@example.com"
+          required
+        />
+      </div>
+
+      <!-- Password Field -->
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input
+          type="password"
+          id="login-password"
+          name="password"
+          placeholder="Enter your password"
+          required
+        />
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary" style="width: 100%;">
+        Login
+      </button>
+    </form>
+
+    <!-- Link to Register Page -->
+    <p>Don't have an account? <a href="register.html">Register here</a></p>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <p>&copy; 2024 <span>MediGo</span>. All rights reserved.</p>
+  </footer>
+
+  <script src="../js/login.js"></script>
+
+</body>
+</html>

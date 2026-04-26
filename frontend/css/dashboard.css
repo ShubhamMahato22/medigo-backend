@@ -1,0 +1,461 @@
+ /* =====================================================
+         DASHBOARD PAGE — SCOPED STYLES
+         ===================================================== */
+
+      /* ---- Layout shell ---- */
+      .dashboard-shell {
+        display: flex;
+        min-height: calc(
+          100vh - 65px - 58px
+        ); /* fill between navbar & footer */
+        background: var(--bg);
+      }
+
+      /* =====================
+         SIDEBAR
+      ===================== */
+      .sidebar {
+        width: 250px;
+        flex-shrink: 0;
+        background: var(--white);
+        border-right: 1px solid var(--border);
+        padding: 32px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        position: sticky;
+        top: 65px;
+        height: fit-content;
+      }
+
+      /* Avatar block */
+      .sidebar-avatar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 0 24px 28px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 12px;
+      }
+
+      .avatar-circle {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+        font-weight: 700;
+        box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
+      }
+
+      .sidebar-avatar-name {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--dark);
+        text-align: center;
+        word-break: break-word;
+      }
+
+      .sidebar-avatar-email {
+        font-size: 0.75rem;
+        color: var(--gray);
+        text-align: center;
+        word-break: break-all;
+      }
+
+      /* Nav items */
+      .sidebar-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 0 12px;
+      }
+
+      .sidebar-nav-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 11px 16px;
+        border-radius: 10px;
+        font-size: 0.92rem;
+        font-weight: 500;
+        color: var(--dark);
+        cursor: pointer;
+        transition:
+          background 0.15s,
+          color 0.15s;
+        border: none;
+        background: transparent;
+        width: 100%;
+        text-align: left;
+        font-family: var(--font);
+      }
+
+      .sidebar-nav-item .nav-icon {
+        font-size: 1.1rem;
+        width: 22px;
+        text-align: center;
+      }
+
+      .sidebar-nav-item:hover {
+        background: var(--bg);
+        color: var(--primary);
+      }
+
+      .sidebar-nav-item.active {
+        background: #dcfce7;
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      /* Logout button */
+      .sidebar-logout {
+        margin: auto 12px 0;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+        margin-top: 24px;
+      }
+
+      .btn-logout {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 11px 16px;
+        border-radius: 10px;
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: var(--danger);
+        cursor: pointer;
+        border: 1.5px solid #fca5a5;
+        background: #fff5f5;
+        font-family: var(--font);
+        transition:
+          background 0.15s,
+          border-color 0.15s;
+      }
+
+      .btn-logout:hover {
+        background: #fee2e2;
+        border-color: var(--danger);
+      }
+
+      /* =====================
+         MAIN CONTENT AREA
+      ===================== */
+      .dashboard-content {
+        flex: 1;
+        padding: 36px 40px;
+        min-width: 0; /* prevent flex overflow */
+      }
+
+      /* Section header */
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+
+      .section-header h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .section-header .header-icon {
+        font-size: 1.6rem;
+      }
+
+      /* Content panel hidden by default */
+      .dash-panel {
+        display: none;
+      }
+
+      .dash-panel.active {
+        display: block;
+      }
+
+      /* =====================
+         PROFILE SECTION
+      ===================== */
+      .profile-card {
+        background: var(--white);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        padding: 36px;
+        max-width: 560px;
+      }
+
+      .profile-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .profile-row:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .profile-row:first-child {
+        padding-top: 0;
+      }
+
+      .profile-label {
+        flex: 0 0 120px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--gray);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding-top: 2px;
+      }
+
+      .profile-value {
+        flex: 1;
+        font-size: 0.97rem;
+        font-weight: 500;
+        color: var(--dark);
+        word-break: break-word;
+      }
+
+      /* =====================
+         ORDERS SECTION
+      ===================== */
+      #orders-loading,
+      #orders-empty,
+      #orders-error {
+        text-align: center;
+        padding: 48px 20px;
+        color: var(--gray);
+        font-size: 1rem;
+        font-weight: 500;
+      }
+
+      #orders-error {
+        color: var(--danger);
+      }
+
+      .orders-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .order-card {
+        background: var(--white);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        padding: 24px 28px;
+        border-left: 4px solid var(--primary);
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s;
+      }
+
+      .order-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(22, 163, 74, 0.14);
+      }
+
+      .order-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .order-id {
+        font-size: 0.75rem;
+        color: var(--gray);
+        font-weight: 500;
+        font-family: monospace;
+        background: var(--bg);
+        padding: 3px 10px;
+        border-radius: 6px;
+        border: 1px solid var(--border);
+        word-break: break-all;
+      }
+
+      .order-meta {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .order-amount {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+      }
+
+      .order-status {
+        font-size: 0.78rem;
+        font-weight: 600;
+        padding: 3px 10px;
+        border-radius: 20px;
+      }
+
+      .status-pending {
+        background: #fef9c3;
+        color: #854d0e;
+        border: 1px solid #fde047;
+      }
+      .status-confirmed {
+        background: #dcfce7;
+        color: #15803d;
+        border: 1px solid #86efac;
+      }
+      .status-delivered {
+        background: #dbeafe;
+        color: #1d4ed8;
+        border: 1px solid #93c5fd;
+      }
+      .status-cancelled {
+        background: #fee2e2;
+        color: #b91c1c;
+        border: 1px solid #fca5a5;
+      }
+
+      /* Medicines list inside order */
+      .order-items-label {
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--gray);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+      }
+
+      .order-items-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .order-item-pill {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 4px 12px;
+        font-size: 0.82rem;
+        color: var(--dark);
+        font-weight: 500;
+      }
+
+      .order-item-pill .pill-qty {
+        color: var(--gray);
+        font-size: 0.76rem;
+      }
+
+      /* =====================
+         RESPONSIVE
+      ===================== */
+      @media (max-width: 768px) {
+        .dashboard-shell {
+          flex-direction: column;
+        }
+
+        .sidebar {
+          width: 100%;
+          position: static;
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+          padding: 20px 16px;
+        }
+
+        .sidebar-avatar {
+          padding-bottom: 16px;
+        }
+
+        .sidebar-nav {
+          flex-direction: row;
+          flex-wrap: wrap;
+          padding: 0;
+        }
+
+        .sidebar-nav-item {
+          flex: 1;
+          justify-content: center;
+          min-width: 120px;
+        }
+
+        .sidebar-logout {
+          margin: 12px 0 0;
+          padding-top: 12px;
+        }
+
+        .dashboard-content {
+          padding: 24px 16px;
+        }
+
+        .profile-card {
+          padding: 24px 18px;
+        }
+
+        .order-card {
+          padding: 18px 16px;
+        }
+      }
+      /* =====================
+         TIMELINE UI
+      ===================== */
+      .timeline {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid var(--border);
+      }
+
+      .step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        width: auto;
+        height: auto;
+      }
+
+      .step span {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #e2e8f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+      }
+
+      .step small {
+        font-size: 10px;
+        color: #64748b;
+        text-align: center;
+      }
+
+      .step.completed span {
+        background: #22c55e;
+        color: white;
+      }
+
+      .step.active span {
+        background: #16a34a;
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+      }
+      .timeline {
+        gap: 10px;
+      }
