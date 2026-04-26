@@ -8,7 +8,7 @@
          6. Show success overlay
       ============================================== */
 
-      const API_BASE = "http://localhost:5000";
+      const API_BASE = "https://medigo-backend-bljr.onrender.com";
 
       // -----------------------------------------------
       // 1. Load data from localStorage
