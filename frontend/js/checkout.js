@@ -1,18 +1,17 @@
-  /* ==============================================
-         checkout.html — JavaScript
+  /*
+         checkout.html
          1. Guard: cart must not be empty, user must be logged in
          2. Compute and show delivery date
          3. Render order items + price summary
          4. Address pre-fill from localStorage
          5. confirmOrder() → POST /api/orders
          6. Show success overlay
-      ============================================== */
+ */
 
       const API_BASE = "https://medigo-backend-bljr.onrender.com";
 
-      // -----------------------------------------------
+      
       // 1. Load data from localStorage
-      // -----------------------------------------------
       const user = JSON.parse(localStorage.getItem("user"));
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -31,9 +30,9 @@
         }
       })();
 
-      // -----------------------------------------------
+      
       // 2. Delivery date (2–5 days from today)
-      // -----------------------------------------------
+      
       function getDeliveryDate() {
         const days      = Math.floor(Math.random() * 4) + 2; // 2–5
         const date      = new Date();
@@ -47,9 +46,8 @@
       document.getElementById("delivery-date").textContent       = deliveryDateStr;
       document.getElementById("success-delivery-date").textContent = "🚚 Delivery by " + deliveryDateStr;
 
-      // -----------------------------------------------
+      
       // 3. Render order items
-      // -----------------------------------------------
       function renderItems() {
         const list = document.getElementById("order-items-list");
         document.getElementById("item-count").textContent = cart.length + " item" + (cart.length !== 1 ? "s" : "");
@@ -66,9 +64,8 @@
         }).join("");
       }
 
-      // -----------------------------------------------
+     
       // 4. Render price summary
-      // -----------------------------------------------
       function renderPriceSummary() {
         const subtotal   = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
         const shipping   = 0;   // free
@@ -96,9 +93,8 @@
       renderItems();
       const orderTotal = renderPriceSummary();
 
-      // -----------------------------------------------
+      
       // 5. Pre-fill address from localStorage
-      // -----------------------------------------------
       const savedAddress = JSON.parse(localStorage.getItem("address") || "null");
       if (savedAddress) {
         if (savedAddress.name)    document.getElementById("addr-name").value    = savedAddress.name;
@@ -114,9 +110,8 @@
       if (user.name)  document.getElementById("addr-name").value  = document.getElementById("addr-name").value  || user.name;
       if (user.phone) document.getElementById("addr-phone").value = document.getElementById("addr-phone").value || user.phone;
 
-      // -----------------------------------------------
+     
       // 6. Confirm Order
-      // -----------------------------------------------
       async function confirmOrder() {
         const errorEl = document.getElementById("addr-error");
         errorEl.style.display = "none";

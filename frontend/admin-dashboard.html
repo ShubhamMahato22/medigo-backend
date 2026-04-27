@@ -131,18 +131,18 @@
         <!-- ======= MANAGE MEDICINES PANEL ======= -->
         <div class="dash-panel" id="panel-manage-med">
           <div class="section-header">
-            <span class="header-icon">💊</span>
+            <span class="header-icon"></span>
             <h2>Manage Medicines</h2>
           </div>
 
           <div class="med-controls">
             <span class="med-count" id="med-count">Loading...</span>
-            <button class="btn-refresh" onclick="fetchMedicinesAdmin()">🔄 Refresh</button>
+            <button class="btn-refresh" onclick="fetchMedicinesAdmin()">Refresh</button>
           </div>
 
-          <div class="state-msg" id="med-loading" style="display:none;">⏳ Loading medicines...</div>
-          <div class="state-msg" id="med-empty"   style="display:none;">💊 No medicines found.</div>
-          <div class="state-msg" id="med-error"   style="display:none; color:var(--danger);">❌ Failed to load medicines.</div>
+          <div class="state-msg" id="med-loading" style="display:none;">Loading medicines...</div>
+          <div class="state-msg" id="med-empty"   style="display:none;">No medicines found.</div>
+          <div class="state-msg" id="med-error"   style="display:none; color:var(--danger);">Failed to load medicines.</div>
 
           <div class="med-table-wrap">
             <table class="med-table">

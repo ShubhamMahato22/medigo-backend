@@ -1,7 +1,4 @@
-// =====================================================
-    // index.js (inline) - Home Page Script
-    // Renders feature cards dynamically using DOM manipulation
-    // =====================================================
+
 
     // Array of feature objects
     const reviews = [

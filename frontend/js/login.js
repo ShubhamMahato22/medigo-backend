@@ -1,7 +1,6 @@
- // =====================================================
+
     // Login Page Script
     // Handles form submission and sends data to the backend API
-    // =====================================================
 
     // Get references to the form and message box
     const loginForm = document.getElementById("login-form");

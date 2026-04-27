@@ -1,26 +1,26 @@
- /* ==============================================
-         dashboard.html — JavaScript
+ /*
+         dashboard
          1. Guard: redirect to login if not logged in
          2. Populate profile from localStorage
          3. Fetch & filter orders from API
          4. Sidebar tab switching
          5. Logout
-      ============================================== */
+ */
 
       const API_BASE ="https://medigo-backend-bljr.onrender.com";
 
-      // -----------------------------------------------
+     
       // 1. Guard: must be logged in
-      // -----------------------------------------------
+    
       const user = JSON.parse(localStorage.getItem("user"));
 
       if (!user) {
         window.location.href = "login.html";
       }
 
-      // -----------------------------------------------
+
       // 2. Auth navbar
-      // -----------------------------------------------
+
       (function () {
         const authSection = document.getElementById("auth-section");
         if (user) {
@@ -32,9 +32,9 @@
         }
       })();
 
-      // -----------------------------------------------
+    
       // 3. Populate profile
-      // -----------------------------------------------
+
       function populateProfile() {
         if (!user) return;
 
@@ -65,9 +65,9 @@
 
       populateProfile();
 
-      // -----------------------------------------------
+     
       // 4. Sidebar panel switching
-      // -----------------------------------------------
+   
       function showPanel(panel) {
         // Hide all panels
         document
@@ -88,9 +88,9 @@
         }
       }
 
-      // -----------------------------------------------
+    
       // 5. Fetch and display orders
-      // -----------------------------------------------
+
       let ordersLoaded = false;
 
       const ordersLoadingEl = document.getElementById("orders-loading");
@@ -227,9 +227,8 @@
         }
       }
 
-      // -----------------------------------------------
       // 6. Logout
-      // -----------------------------------------------
+      
       function logout() {
         if (confirm("Are you sure you want to logout?")) {
           localStorage.removeItem("user");

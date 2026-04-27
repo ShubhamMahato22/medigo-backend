@@ -1,6 +1,5 @@
-// =====================================================
+
 // config/db.js - MongoDB Database Connection
-// =====================================================
 
 const mongoose = require("mongoose");
 

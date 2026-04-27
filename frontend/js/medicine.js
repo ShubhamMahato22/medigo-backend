@@ -1,10 +1,10 @@
- /* ==============================================
-         medicine.html — JavaScript
+ /*
+         medicine
          1. Parse ?id= from URL
          2. Fetch medicine from API
          3. Render full detail layout
          4. Add to Cart (reuses localStorage logic)
-      ============================================== */
+*/
 
       const API_BASE = "https://medigo-backend-bljr.onrender.com";
 
@@ -57,9 +57,9 @@
         document.getElementById("qty-display").textContent = quantity;
       }
 
-      // ============================================================
+
       // CUSTOMER REVIEWS LOGIC
-      // ============================================================
+    
       let currentMedicineId = null;
 
       function toggleReviewForm() {

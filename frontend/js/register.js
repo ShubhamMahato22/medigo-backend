@@ -1,7 +1,6 @@
-// =====================================================
+
     // Register Page Script
     // Collects form data and sends it to the backend API
-    // =====================================================
 
     const registerForm = document.getElementById("register-form");
     const registerMessage = document.getElementById("register-message");

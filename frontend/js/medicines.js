@@ -3,9 +3,7 @@
       const errorMsg      = document.getElementById("error-msg");
       const searchInput   = document.getElementById("search-input");
 
-      /* ============================================================
-         SEARCH & FILTER STATE
-         ============================================================ */
+      /*SEARCH & FILTER STATE */
 
       /** Master list — populated once after first successful API fetch */
       let allMedicines = [];
@@ -152,9 +150,7 @@
         refreshCardUI(id);
       }
 
-      /* ============================================================
-         CARD UI HELPERS
-         ============================================================ */
+      /*CARD UI HELPERS*/
 
       /**
        * Find the action area of a card (identified by data-medicine-id)
@@ -286,9 +282,7 @@
         });
       }
 
-      /* ============================================================
-         FETCH
-         ============================================================ */
+      /*FETCH*/
 
       async function fetchMedicines() {
         try {

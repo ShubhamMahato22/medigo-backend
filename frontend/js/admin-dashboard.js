@@ -1,18 +1,18 @@
-/* ==============================================
-         admin-dashboard.html — JavaScript
+/*
+         admin-dashboard
          1. Guard: redirect if not admin
          2. Sidebar panel switching
          3. Add Medicine → POST /api/medicines
          4. Manage Orders → GET /api/orders
          5. Accept / Cancel → PUT /api/orders/:id
          6. Logout
-      ============================================== */
+  */
 
 const API_BASE = "https://medigo-backend-bljr.onrender.com";
 
-// -----------------------------------------------
+
 // 1. Guard
-// -----------------------------------------------
+
 const token = localStorage.getItem("adminToken");
 
 if (!token) {
@@ -26,9 +26,9 @@ if (!token) {
   }
 }
 
-// -----------------------------------------------
+
 // 2. Sidebar switching
-// -----------------------------------------------
+
 function showPanel(panel) {
   document
     .querySelectorAll(".dash-panel")
@@ -43,9 +43,9 @@ function showPanel(panel) {
   if (panel === "manage-med") fetchMedicinesAdmin();
 }
 
-// -----------------------------------------------
+
 // 3. Toast
-// -----------------------------------------------
+
 let toastTimer;
 function showToast(msg) {
   const el = document.getElementById("toast");
@@ -55,9 +55,9 @@ function showToast(msg) {
   toastTimer = setTimeout(() => el.classList.remove("show"), 2800);
 }
 
-// -----------------------------------------------
+
 // 4. Message boxes
-// -----------------------------------------------
+
 function showMsg(id, type, text) {
   const el = document.getElementById(id);
   el.className = "message " + type;
@@ -68,9 +68,8 @@ function showMsg(id, type, text) {
   }, 4000);
 }
 
-// -----------------------------------------------
 // 5. Add Medicine
-// -----------------------------------------------
+
 const addMedForm = document.getElementById("add-medicine-form");
 
 addMedForm.addEventListener("submit", async function (e) {
@@ -117,9 +116,9 @@ addMedForm.addEventListener("submit", async function (e) {
   }
 });
 
-// -----------------------------------------------
+
 // 6. Fetch & render all orders
-// -----------------------------------------------
+
 function setOrderState(which) {
   ["orders-loading", "orders-empty", "orders-error"].forEach((id) => {
     const el = document.getElementById(id);
@@ -276,9 +275,9 @@ function renderOrders(orders) {
   });
 }
 
-// -----------------------------------------------
+
 // 7. Update order status
-// -----------------------------------------------
+
 async function updateOrderStatus(orderId, newStatus) {
   const orderCard = document.getElementById("order-card-" + orderId);
   const buttons = orderCard
@@ -347,9 +346,9 @@ async function updateOrderStatus(orderId, newStatus) {
   }
 }
 
-// -----------------------------------------------
+
 // 8. Logout
-// -----------------------------------------------
+
 function adminLogout() {
   if (confirm("Logout from admin panel?")) {
     localStorage.removeItem("adminToken");
@@ -358,9 +357,9 @@ function adminLogout() {
   }
 }
 
-// ===============================================
+
 // 9. MANAGE MEDICINES — Fetch, Edit, Delete
-// ===============================================
+
 
 let medicinesCache = []; // keep a local copy for edit pre-fill
 

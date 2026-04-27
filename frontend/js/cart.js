@@ -12,9 +12,8 @@ const cartTbody     = document.getElementById("cart-tbody");
       setTimeout(() => { cartMessage.style.display = "none"; }, 3000);
     }
 
-    /* ============================================================
-       REUSABLE CART HELPERS  (mirrors medicines.html helpers)
-       ============================================================ */
+    /* 
+       REUSABLE CART HELPERS  (mirrors medicines.html helpers) */
 
     function getCart() {
       return JSON.parse(localStorage.getItem("cart")) || [];
@@ -49,9 +48,7 @@ const cartTbody     = document.getElementById("cart-tbody");
       loadCart();
     }
 
-    /* ============================================================
-       LOAD & RENDER CART
-       ============================================================ */
+    /*LOAD & RENDER CART*/
 
     function loadCart() {
       const cart = getCart();
@@ -110,9 +107,7 @@ const cartTbody     = document.getElementById("cart-tbody");
       totalAmountEl.textContent = "₹" + total;
     }
 
-    /* ============================================================
-       EXISTING FUNCTIONS — UNCHANGED
-       ============================================================ */
+    /*EXISTING FUNCTIONS — UNCHANGED*/
 
     function removeItem(id) {
       let cart = getCart();

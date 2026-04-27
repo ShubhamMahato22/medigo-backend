@@ -1,7 +1,4 @@
-/* ==============================================
-         admin-login.html — JavaScript
-         Admin login via backend JWT auth
-      ============================================== */
+
 
 const API_BASE = "https://medigo-backend-bljr.onrender.com";
 const token = localStorage.getItem("adminToken");
@@ -43,7 +40,7 @@ form.addEventListener("submit", async function (e) {
     const data = await response.json();
 
     if (data.success) {
-      // ✅ Correct — store admin session and redirect
+      // Correct — store admin session and redirect
       localStorage.setItem("adminToken", data.token);
       localStorage.setItem("adminUser", JSON.stringify(data));
       showMsg("success", "✅ Login successful! Redirecting...");
